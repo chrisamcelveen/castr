@@ -1,0 +1,25 @@
+<section id="main" class="main">
+  <div id="map-box" class="col-md-9">
+    <div class="box">
+      <div id="map"></div>
+    </div>
+  </div>
+  <div id="chat" class="col-md-3">
+    <div id="chat-list" ng-controller="ChatCtrl as chat">
+      <h1>Messages</h1>
+      <form name="text-entry" ng-submit="chat.sendMsg()">
+        <input type="text" name="new-chat" placeholder="Say something" ng-model="chat.newMessage">
+      </form>
+      <div id="#new-message" ng-show="chat.newMessage"> <!-- form valid -->
+        <span class="content" href="#" ng-bind="chat.newMessage"></span><br>
+        <span class="content" href="#"><p>User Name</p></span><br>
+      </div>
+      <ul ng-repeat="chat in chat.data ">
+        <li class="chat">
+          <span class="content" href="#" ng-bind="chat.content"></span><br>
+          <span class="author" ng-bind="chat.author"></span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
